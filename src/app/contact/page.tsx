@@ -207,59 +207,45 @@ export default function ContactPage() {
               </p>
               
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="text-sm font-medium">First Name *</label>
-                    <div className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"></div>
+                <form method="post" action="/api/contact" className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="text-sm font-medium">Name *</label>
+                      <input name="name" required className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium">Email Address *</label>
+                      <input name="email" type="email" required className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="text-sm font-medium">Phone Number</label>
+                      <input name="phone" className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium">Preferred Division</label>
+                      <input name="division" className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
+                    </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium">Last Name *</label>
-                    <div className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"></div>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="text-sm font-medium">Email Address *</label>
-                    <div className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"></div>
+                    <label className="text-sm font-medium">Inquiry Type *</label>
+                    <select name="requestType" required className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
+                      <option value="security_assessment">Security Assessment</option>
+                      <option value="general_inquiry">General Inquiry</option>
+                      <option value="service_request">Service Request</option>
+                      <option value="technical_support">Technical Support</option>
+                    </select>
                   </div>
                   <div>
-                    <label className="text-sm font-medium">Phone Number</label>
-                    <div className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"></div>
+                    <label className="text-sm font-medium">Message *</label>
+                    <textarea name="message" required rows={6} className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm" />
                   </div>
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium">Company Name</label>
-                  <div className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"></div>
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium">Inquiry Type *</label>
-                  <div className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"></div>
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium">Preferred Division</label>
-                  <div className="mt-1 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"></div>
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium">Message *</label>
-                  <div className="mt-1 h-32 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"></div>
-                </div>
-                
-                <div className="flex items-center gap-2">
-                  <div className="h-4 w-4 rounded border border-input"></div>
-                  <label className="text-sm text-muted-foreground">
-                    I agree to be contacted by Pogiso Group regarding my inquiry
-                  </label>
-                </div>
-                
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  <Send className="mr-2 h-4 w-4" />
-                  Send Message
-                </Button>
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                    <Send className="mr-2 h-4 w-4" />
+                    Send Message
+                  </Button>
+                </form>
               </div>
             </div>
             

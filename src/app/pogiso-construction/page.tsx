@@ -124,9 +124,11 @@ export default function PogisoConstructionPage() {
                 View Portfolio
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-900">
-                Schedule Consultation
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-900">
+                  Schedule Assessment
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

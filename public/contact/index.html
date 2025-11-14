@@ -32,7 +32,44 @@
     <section>
       <div class="container">
         <h2>Contact Form</h2>
-        <p>Use the SPA form on the main site for full experience.</p>
+        <form action="/api/contact" method="post" style="max-width:640px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div>
+              <label>Name *</label>
+              <input name="name" required style="width:100%;padding:.5rem;border:1px solid #e2e8f0;border-radius:.5rem" />
+            </div>
+            <div>
+              <label>Email *</label>
+              <input name="email" type="email" required style="width:100%;padding:.5rem;border:1px solid #e2e8f0;border-radius:.5rem" />
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+            <div>
+              <label>Phone</label>
+              <input name="phone" style="width:100%;padding:.5rem;border:1px solid #e2e8f0;border-radius:.5rem" />
+            </div>
+            <div>
+              <label>Division</label>
+              <input name="division" style="width:100%;padding:.5rem;border:1px solid #e2e8f0;border-radius:.5rem" />
+            </div>
+          </div>
+          <div style="margin-top:1rem">
+            <label>Request Type *</label>
+            <select name="requestType" required style="width:100%;padding:.5rem;border:1px solid #e2e8f0;border-radius:.5rem">
+              <option value="security_assessment">Security Assessment</option>
+              <option value="general_inquiry">General Inquiry</option>
+              <option value="service_request">Service Request</option>
+              <option value="technical_support">Technical Support</option>
+            </select>
+          </div>
+          <div style="margin-top:1rem">
+            <label>Message *</label>
+            <textarea name="message" required rows="6" style="width:100%;padding:.5rem;border:1px solid #e2e8f0;border-radius:.5rem"></textarea>
+          </div>
+          <div style="margin-top:1rem">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </div>
+        </form>
       </div>
     </section>
   </main>
