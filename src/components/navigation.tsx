@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { slugify } from "@/lib/slug";
 import { Button } from "@/components/ui/button";
@@ -66,15 +66,6 @@ export default function Navigation() {
   const location = useLocation();
   const currentLogo = useMemo(() => getLogoForPath(location.pathname), [location.pathname]);
 
-  useEffect(() => {
-    const preload = (src?: string) => {
-      if (!src) return;
-      const img = new Image();
-      img.src = src;
-    };
-    preload(currentLogo.webpLight);
-    preload(currentLogo.light);
-  }, [currentLogo]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -96,6 +87,11 @@ export default function Navigation() {
                 draggable={false}
                 fetchpriority="high"
                 style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
+                onLoad={() => {
+                  if (performance && performance.mark) {
+                    performance.mark("logo-loaded");
+                  }
+                }}
                 onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
               />
             </picture>
@@ -170,6 +166,11 @@ export default function Navigation() {
                   draggable={false}
                   fetchpriority="high"
                   style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
+                  onLoad={() => {
+                    if (performance && performance.mark) {
+                      performance.mark("logo-loaded-mobile");
+                    }
+                  }}
                   onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
                 />
               </picture>
