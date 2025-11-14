@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { slugify } from "@/lib/slug";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, ChevronDown, Building2, Sparkles, HardHat, Shield, Zap, Palette, Plane, Truck } from "lucide-react";
+import { getLogoForPath } from "@/lib/logos";
+import { useLocation } from "react-router-dom";
 
 const subsidiaries = [
   {
@@ -61,15 +63,21 @@ const subsidiaries = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const currentLogo = useMemo(() => getLogoForPath(location.pathname), [location.pathname]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="site-container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link to="/" className="mr-6 flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-full bg-gradient-to-r from-slate-800 to-slate-600 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">PG</span>
-            </div>
+          <Link to="/" className="mr-6 flex items-center space-x-2" aria-label="Go to home">
+            <img
+              src={currentLogo.dark ?? currentLogo.light}
+              alt={currentLogo.alt}
+              className="h-8 w-8 rounded"
+              width={32}
+              height={32}
+            />
             <span className="hidden font-bold sm:inline-block text-xl">Pogiso Group</span>
           </Link>
           <nav className="flex items-center gap-6 text-sm">
@@ -125,10 +133,15 @@ export default function Navigation() {
               to="/"
               className="flex items-center"
               onClick={() => setIsOpen(false)}
+              aria-label="Go to home"
             >
-              <div className="h-8 w-8 rounded-full bg-gradient-to-r from-slate-800 to-slate-600 flex items-center justify-center mr-2">
-                <span className="text-white font-bold text-sm">PG</span>
-              </div>
+              <img
+                src={currentLogo.light}
+                alt={currentLogo.alt}
+                className="h-8 w-8 rounded mr-2"
+                width={32}
+                height={32}
+              />
               <span className="font-bold text-xl">Pogiso Group</span>
             </Link>
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">

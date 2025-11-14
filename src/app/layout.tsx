@@ -21,7 +21,9 @@ export const metadata: Metadata = {
   keywords: ["Pogiso Group", "BEE certified", "South Africa", "cleaning", "hygiene", "construction", "security", "energy", "marketing", "tours", "logistics"],
   authors: [{ name: "Pogiso Group" }],
   icons: {
-    icon: "/logo.svg",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "Pogiso Group - Unified Excellence Across Industries",
