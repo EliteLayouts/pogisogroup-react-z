@@ -71,17 +71,22 @@ export default function Navigation() {
       <div className="site-container flex h-16 items-center">
         <div className="hidden md:flex items-center flex-1">
           <Link to="/" className="flex items-center" aria-label="Go to home">
-            <img
-              src={currentLogo.light}
-              alt={currentLogo.alt}
-              className="h-8 sm:h-10 w-auto object-contain"
-              width={40}
-              height={40}
-              loading="eager"
-              decoding="async"
-              draggable={false}
-              onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
-            />
+            <picture>
+              {currentLogo.webpLight && (
+                <source srcSet={currentLogo.webpLight} type="image/webp" />
+              )}
+              <img
+                src={currentLogo.light}
+                alt={currentLogo.alt}
+                className="h-8 sm:h-10 w-auto object-contain"
+                width={40}
+                height={40}
+                loading="eager"
+                decoding="async"
+                draggable={false}
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
+              />
+            </picture>
           </Link>
         </div>
         <nav className="flex-1 flex items-center justify-center gap-6 md:gap-8 lg:gap-10 xl:gap-12 text-sm whitespace-nowrap">
@@ -138,17 +143,22 @@ export default function Navigation() {
               onClick={() => setIsOpen(false)}
               aria-label="Go to home"
             >
-              <img
-                src={currentLogo.light}
-                alt={currentLogo.alt}
-                className="h-8 w-auto object-contain"
-                width={40}
-                height={40}
-                loading="eager"
-                decoding="async"
-                draggable={false}
-                onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
-              />
+              <picture>
+                {currentLogo.webpLight && (
+                  <source srcSet={currentLogo.webpLight} type="image/webp" />
+                )}
+                <img
+                  src={currentLogo.light}
+                  alt={currentLogo.alt}
+                  className="h-8 w-auto object-contain"
+                  width={40}
+                  height={40}
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
+                />
+              </picture>
             </Link>
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
               <div className="flex flex-col space-y-3">
