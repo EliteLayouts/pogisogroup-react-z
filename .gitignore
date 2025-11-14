@@ -1,0 +1,79 @@
+########################################
+# OS-specific files
+########################################
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+########################################
+# IDE / Editor files
+########################################
+.vscode/
+.idea/
+.fleet/
+.history/
+
+########################################
+# Dependencies & Package Managers
+########################################
+node_modules/
+.pnp/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+########################################
+# Build Artifacts
+########################################
+dist/
+build/
+out/
+.next/
+*.exe
+
+########################################
+# Environment & Config (sensitive)
+########################################
+.env
+.env.*
+*.config
+*.local
+.vercel
+
+########################################
+# Logs & Temp files
+########################################
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+*.tmp
+server.log
+dev.log
+
+########################################
+# Testing & Coverage
+########################################
+coverage/
+test-results/
+
+########################################
+# TypeScript & Project-generated files
+########################################
+*.tsbuildinfo
+next-env.d.ts
+prompt
+test
+.claude
+.z-ai-config
+local-*
