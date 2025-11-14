@@ -69,8 +69,8 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="site-container flex h-16 items-center">
-        <div className="hidden md:flex items-center">
-          <Link to="/" className="mr-6 flex items-center" aria-label="Go to home">
+        <div className="hidden md:flex items-center flex-1">
+          <Link to="/" className="flex items-center" aria-label="Go to home">
             <img
               src={currentLogo.light}
               alt={currentLogo.alt}
@@ -84,19 +84,19 @@ export default function Navigation() {
             />
           </Link>
         </div>
-        <nav className="flex-1 flex items-center justify-center gap-8 text-sm">
+        <nav className="flex-1 flex items-center justify-center gap-6 md:gap-8 lg:gap-10 xl:gap-12 text-sm whitespace-nowrap">
             <Link to="/" className="transition-colors hover:text-foreground/80 text-foreground">
               Home
             </Link>
-            <Link to="/about" className="transition-colors hover:text-foreground/80 text-foreground">
+            <Link to="/about" className="transition-colors hover:text-foreground/80 text-foreground whitespace-nowrap">
               About Us
             </Link>
-            <Link to="/services" className="transition-colors hover:text-foreground/80 text-foreground">
+            <Link to="/services" className="transition-colors hover:text-foreground/80 text-foreground whitespace-nowrap">
               Services
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="h-auto p-0 text-sm hover:bg-transparent">
+                <Button variant="ghost" className="h-auto p-0 text-sm hover:bg-transparent whitespace-nowrap">
                   Our Divisions <ChevronDown className="ml-1 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -117,7 +117,7 @@ export default function Navigation() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link to="/contact" className="transition-colors hover:text-foreground/80 text-foreground">
+            <Link to="/contact" className="transition-colors hover:text-foreground/80 text-foreground whitespace-nowrap">
               Contact
             </Link>
         </nav>
