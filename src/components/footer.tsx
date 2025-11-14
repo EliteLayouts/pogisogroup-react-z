@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { slugify } from "@/lib/slug";
 import { Building2, Sparkles, HardHat, Shield, Zap, Palette, Plane, Truck, Mail, Phone, MapPin } from "lucide-react";
 
@@ -44,10 +44,10 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-lg">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/" className="text-slate-300 hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="/about" className="text-slate-300 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/services" className="text-slate-300 hover:text-white transition-colors">Group Services</Link></li>
-              <li><Link href="/contact" className="text-slate-300 hover:text-white transition-colors">Contact</Link></li>
+              <li><Link to="/" className="text-slate-300 hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/about" className="text-slate-300 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/services" className="text-slate-300 hover:text-white transition-colors">Group Services</Link></li>
+              <li><Link to="/contact" className="text-slate-300 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -58,7 +58,7 @@ export default function Footer() {
               {subsidiaries.slice(0, 4).map((subsidiary) => (
                 <li key={subsidiary.name}>
                   <Link 
-                    href={`/${slugify(subsidiary.name)}`}
+                    to={`/${slugify(subsidiary.name)}`}
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-2"
                   >
                     <subsidiary.icon className="h-3 w-3" />
@@ -101,10 +101,10 @@ export default function Footer() {
               © 2024 Pogiso Group. All rights reserved. | Level 1 BEE Contributor | 100% Black Owned
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link href="/privacy" className="text-slate-400 hover:text-white transition-colors">
+              <Link to="/privacy" className="text-slate-400 hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-slate-400 hover:text-white transition-colors">
+              <Link to="/terms" className="text-slate-400 hover:text-white transition-colors">
                 Terms of Service
               </Link>
             </div>

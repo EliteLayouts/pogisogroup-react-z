@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -281,7 +281,7 @@ export default function PogisoMarketingPage() {
               </div>
               
               <div className="mt-8">
-                <Link href="https://pogisosmarketing.co.za" target="_blank" rel="noopener noreferrer">
+                <Link to="https://pogisosmarketing.co.za" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
                     Visit Our Dedicated Website
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -344,13 +344,13 @@ export default function PogisoMarketingPage() {
             creative and branding needs. Experience excellence in every project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link to="/contact">
               <Button size="lg" className="bg-white text-purple-900 hover:bg-purple-50">
                 Start Creative Project
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/services">
+            <Link to="/services">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-900">
                 Explore Other Divisions
               </Button>

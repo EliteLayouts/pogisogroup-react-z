@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { slugify } from "@/lib/slug";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -93,13 +93,13 @@ export default function Home() {
               across eight specialized industries with unwavering commitment to quality, innovation, and transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/services">
+              <Link to="/services">
                 <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
                   Explore Our Divisions
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link to="/contact">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900">
                   Get Quote
                 </Button>
@@ -156,7 +156,7 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                  <Link href={`/${slugify(subsidiary.name)}`}>
+                  <Link to={`/${slugify(subsidiary.name)}`}>
                     <Button variant="outline" className="w-full group-hover:bg-slate-900 group-hover:text-white transition-colors">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -245,12 +245,12 @@ export default function Home() {
                 </div>
                 
                 <div className="space-y-3">
-                  <Link href="/contact">
+                  <Link to="/contact">
                     <Button className="w-full bg-slate-900 hover:bg-slate-800">
                       Contact Our Team
                     </Button>
                   </Link>
-                  <Link href="/services">
+                  <Link to="/services">
                     <Button variant="outline" className="w-full">
                       Explore All Services
                     </Button>
@@ -279,13 +279,13 @@ export default function Home() {
             Let us be your partner in growth and excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link to="/contact">
               <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
                 Get Started Now
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/about">
+            <Link to="/about">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900">
                 Learn About Our Story
               </Button>

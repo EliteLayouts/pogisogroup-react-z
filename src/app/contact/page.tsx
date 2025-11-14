@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -181,7 +181,7 @@ export default function ContactPage() {
                     <Mail className="h-4 w-4 text-muted-foreground" />
                     <span className="truncate">{subsidiary.email}</span>
                   </div>
-                  <Link href={`/${slugify(subsidiary.name)}`}> 
+                  <Link to={`/${slugify(subsidiary.name)}`}> 
                     <Button variant="outline" size="sm" className="w-full mt-2">
                       Visit Division
                       <ArrowRight className="ml-2 h-3 w-3" />

@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Target, Eye, Heart, MapPin, CheckCircle, TrendingUp, Building2, Mail, Phone } from "lucide-react";
-import Link from "next/link";
 
 const milestones = [
   {
@@ -375,11 +374,11 @@ export default function AboutPage() {
           </div>
           
           <div className="text-center mt-12">
-            <Link href="/contact">
+            <a href="/contact">
               <Button size="lg" className="bg-slate-900 hover:bg-slate-800">
                 Partner With Us Today
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

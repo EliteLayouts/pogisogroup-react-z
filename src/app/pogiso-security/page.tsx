@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -113,13 +113,13 @@ export default function PogisoSecurityPage() {
               Your trusted partner for complete peace of mind and asset protection.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
+              <Link to="/contact">
                 <Button size="lg" className="bg-white text-red-900 hover:bg-red-50">
                   Security Assessment
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/services">
+              <Link to="/services">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-red-900">
                   View Solutions
                 </Button>
@@ -295,7 +295,7 @@ export default function PogisoSecurityPage() {
               </div>
               
               <div className="mt-8">
-                <Link href="https://pogisosecurity.co.za" target="_blank" rel="noopener noreferrer">
+                <Link to="https://pogisosecurity.co.za" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-red-600 hover:bg-red-700">
                     Visit Our Dedicated Website
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -358,13 +358,13 @@ export default function PogisoSecurityPage() {
             professional security needs. Experience peace of mind with every service.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link to="/contact">
               <Button size="lg" className="bg-white text-red-900 hover:bg-red-50">
                 Schedule Assessment
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/services">
+            <Link to="/services">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-red-900">
                 Explore Other Divisions
               </Button>

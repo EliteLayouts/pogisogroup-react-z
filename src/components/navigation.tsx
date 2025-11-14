@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { slugify } from "@/lib/slug";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -66,20 +66,20 @@ export default function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="site-container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link to="/" className="mr-6 flex items-center space-x-2">
             <div className="h-8 w-8 rounded-full bg-gradient-to-r from-slate-800 to-slate-600 flex items-center justify-center">
               <span className="text-white font-bold text-sm">PG</span>
             </div>
             <span className="hidden font-bold sm:inline-block text-xl">Pogiso Group</span>
           </Link>
           <nav className="flex items-center gap-6 text-sm">
-            <Link href="/" className="transition-colors hover:text-foreground/80 text-foreground">
+            <Link to="/" className="transition-colors hover:text-foreground/80 text-foreground">
               Home
             </Link>
-            <Link href="/about" className="transition-colors hover:text-foreground/80 text-foreground">
+            <Link to="/about" className="transition-colors hover:text-foreground/80 text-foreground">
               About Us
             </Link>
-            <Link href="/services" className="transition-colors hover:text-foreground/80 text-foreground">
+            <Link to="/services" className="transition-colors hover:text-foreground/80 text-foreground">
               Services
             </Link>
             <DropdownMenu>
@@ -91,7 +91,7 @@ export default function Navigation() {
               <DropdownMenuContent align="start" className="w-80">
                 {subsidiaries.map((subsidiary) => (
                   <DropdownMenuItem key={subsidiary.name} asChild>
-                    <Link href={`/${slugify(subsidiary.name)}`} className="flex items-start gap-3 p-3">
+                    <Link to={`/${slugify(subsidiary.name)}`} className="flex items-start gap-3 p-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted">
                         <subsidiary.icon className="h-5 w-5" />
                       </div>
@@ -105,7 +105,7 @@ export default function Navigation() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link href="/contact" className="transition-colors hover:text-foreground/80 text-foreground">
+            <Link to="/contact" className="transition-colors hover:text-foreground/80 text-foreground">
               Contact
             </Link>
           </nav>
@@ -122,7 +122,7 @@ export default function Navigation() {
           </SheetTrigger>
           <SheetContent side="left" className="pr-0">
             <Link
-              href="/"
+              to="/"
               className="flex items-center"
               onClick={() => setIsOpen(false)}
             >
@@ -133,13 +133,13 @@ export default function Navigation() {
             </Link>
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
               <div className="flex flex-col space-y-3">
-                <Link href="/" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
+                <Link to="/" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
                   Home
                 </Link>
-                <Link href="/about" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
+                <Link to="/about" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
                   About Us
                 </Link>
-                <Link href="/services" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
+                <Link to="/services" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
                   Services
                 </Link>
                 <div className="space-y-2">
@@ -147,7 +147,7 @@ export default function Navigation() {
                   {subsidiaries.map((subsidiary) => (
                     <Link
                       key={subsidiary.name}
-                      href={`/${slugify(subsidiary.name)}`}
+                      to={`/${slugify(subsidiary.name)}`}
                       onClick={() => setIsOpen(false)}
                       className="block pl-4 text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
@@ -155,7 +155,7 @@ export default function Navigation() {
                     </Link>
                   ))}
                 </div>
-                <Link href="/contact" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
+                <Link to="/contact" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
                   Contact
                 </Link>
               </div>
@@ -164,7 +164,7 @@ export default function Navigation() {
         </Sheet>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
-            <Link href="/contact" className="hidden md:inline-flex">
+            <Link to="/contact" className="hidden md:inline-flex">
               <Button className="bg-slate-800 hover:bg-slate-700">Get Quote</Button>
             </Link>
           </div>

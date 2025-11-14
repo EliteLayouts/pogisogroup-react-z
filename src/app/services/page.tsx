@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -265,7 +265,7 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href={`/${slugify(division.name)}`}>
+                  <Link to={`/${slugify(division.name)}`}>
                     <Button variant="outline" className="w-full group-hover:bg-slate-900 group-hover:text-white transition-colors">
                       Explore Services
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -324,13 +324,13 @@ export default function ServicesPage() {
             your business needs to thrive in today's competitive landscape.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link to="/contact">
               <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
                 Get Custom Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/about">
+            <Link to="/about">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900">
                 Learn About Our Expertise
               </Button>
