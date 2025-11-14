@@ -120,9 +120,11 @@ export default function PogisoLogisticsPage() {
                 Get Freight Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
+            <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-900">
                 Track Shipment
               </Button>
+            </Link>
             </div>
           </div>
         </div>

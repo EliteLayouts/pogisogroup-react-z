@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { slugify } from "@/lib/slug";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -90,7 +91,7 @@ export default function Navigation() {
               <DropdownMenuContent align="start" className="w-80">
                 {subsidiaries.map((subsidiary) => (
                   <DropdownMenuItem key={subsidiary.name} asChild>
-                    <Link href={`/${subsidiary.name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-start gap-3 p-3">
+                    <Link href={`/${slugify(subsidiary.name)}`} className="flex items-start gap-3 p-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted">
                         <subsidiary.icon className="h-5 w-5" />
                       </div>
@@ -146,7 +147,7 @@ export default function Navigation() {
                   {subsidiaries.map((subsidiary) => (
                     <Link
                       key={subsidiary.name}
-                      href={`/${subsidiary.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={`/${slugify(subsidiary.name)}`}
                       onClick={() => setIsOpen(false)}
                       className="block pl-4 text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
@@ -163,9 +164,9 @@ export default function Navigation() {
         </Sheet>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
-            <Button className="hidden md:inline-flex bg-slate-800 hover:bg-slate-700">
-              Get Quote
-            </Button>
+            <Link href="/contact" className="hidden md:inline-flex">
+              <Button className="bg-slate-800 hover:bg-slate-700">Get Quote</Button>
+            </Link>
           </div>
         </div>
       </div>

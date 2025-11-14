@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, MapPin, Building2, CheckCircle, ArrowRight, Send, MessageSquare, Clock } from "lucide-react";
+import { slugify } from "@/lib/slug";
 
 const subsidiaries = [
   {
@@ -180,7 +181,7 @@ export default function ContactPage() {
                     <Mail className="h-4 w-4 text-muted-foreground" />
                     <span className="truncate">{subsidiary.email}</span>
                   </div>
-                  <Link href={`/${subsidiary.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <Link href={`/${slugify(subsidiary.name)}`}> 
                     <Button variant="outline" size="sm" className="w-full mt-2">
                       Visit Division
                       <ArrowRight className="ml-2 h-3 w-3" />

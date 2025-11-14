@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Building2, Sparkles, HardHat, Shield, Zap, Palette, Plane, Truck, ArrowRight, CheckCircle, Star, Clock, Users } from "lucide-react";
+import { slugify } from "@/lib/slug";
 
 const serviceCategories = [
   {
@@ -264,7 +265,7 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href={`/${division.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <Link href={`/${slugify(division.name)}`}>
                     <Button variant="outline" className="w-full group-hover:bg-slate-900 group-hover:text-white transition-colors">
                       Explore Services
                       <ArrowRight className="ml-2 h-4 w-4" />

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { slugify } from "@/lib/slug";
 import { Building2, Sparkles, HardHat, Shield, Zap, Palette, Plane, Truck, Mail, Phone, MapPin } from "lucide-react";
 
 const subsidiaries = [
@@ -57,7 +58,7 @@ export default function Footer() {
               {subsidiaries.slice(0, 4).map((subsidiary) => (
                 <li key={subsidiary.name}>
                   <Link 
-                    href={`/${subsidiary.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/${slugify(subsidiary.name)}`}
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-2"
                   >
                     <subsidiary.icon className="h-3 w-3" />

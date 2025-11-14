@@ -113,13 +113,17 @@ export default function PogisoSecurityPage() {
               Your trusted partner for complete peace of mind and asset protection.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-red-900 hover:bg-red-50">
-                Security Assessment
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-red-900">
-                View Solutions
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-white text-red-900 hover:bg-red-50">
+                  Security Assessment
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/services">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-red-900">
+                  View Solutions
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

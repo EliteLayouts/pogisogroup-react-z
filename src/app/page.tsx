@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { slugify } from "@/lib/slug";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -92,13 +93,17 @@ export default function Home() {
               across eight specialized industries with unwavering commitment to quality, innovation, and transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
-                Explore Our Divisions
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900">
-                Get Quote
-              </Button>
+              <Link href="/services">
+                <Button size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
+                  Explore Our Divisions
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900">
+                  Get Quote
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -151,7 +156,7 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                  <Link href={`/${subsidiary.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <Link href={`/${slugify(subsidiary.name)}`}>
                     <Button variant="outline" className="w-full group-hover:bg-slate-900 group-hover:text-white transition-colors">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
