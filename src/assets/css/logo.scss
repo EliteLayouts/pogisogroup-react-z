@@ -1,0 +1,18 @@
+:root {
+  --logo-width: 180px;
+  --logo-height: auto;
+}
+
+.brand-logo {
+  width: var(--logo-width);
+  height: var(--logo-height);
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --logo-width: 120px;
+  }
+}
+

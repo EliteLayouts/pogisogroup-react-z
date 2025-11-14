@@ -69,18 +69,22 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="site-container flex h-16 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link to="/" className="mr-6 flex items-center space-x-2" aria-label="Go to home">
+        <div className="hidden md:flex items-center">
+          <Link to="/" className="mr-6 flex items-center" aria-label="Go to home">
             <img
-              src={currentLogo.dark ?? currentLogo.light}
+              src={currentLogo.light}
               alt={currentLogo.alt}
-              className="h-8 w-8 rounded"
-              width={32}
-              height={32}
+              className="h-8 sm:h-10 w-auto object-contain"
+              width={40}
+              height={40}
+              loading="eager"
+              decoding="async"
+              draggable={false}
+              onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
             />
-            <span className="hidden font-bold sm:inline-block text-xl">Pogiso Group</span>
           </Link>
-          <nav className="flex items-center gap-6 text-sm">
+        </div>
+        <nav className="flex-1 flex items-center justify-center gap-8 text-sm">
             <Link to="/" className="transition-colors hover:text-foreground/80 text-foreground">
               Home
             </Link>
@@ -116,8 +120,7 @@ export default function Navigation() {
             <Link to="/contact" className="transition-colors hover:text-foreground/80 text-foreground">
               Contact
             </Link>
-          </nav>
-        </div>
+        </nav>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
@@ -138,11 +141,14 @@ export default function Navigation() {
               <img
                 src={currentLogo.light}
                 alt={currentLogo.alt}
-                className="h-8 w-8 rounded mr-2"
-                width={32}
-                height={32}
+                className="h-8 w-auto object-contain"
+                width={40}
+                height={40}
+                loading="eager"
+                decoding="async"
+                draggable={false}
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
               />
-              <span className="font-bold text-xl">Pogiso Group</span>
             </Link>
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
               <div className="flex flex-col space-y-3">
@@ -175,12 +181,10 @@ export default function Navigation() {
             </div>
           </SheetContent>
         </Sheet>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
-            <Link to="/contact" className="hidden md:inline-flex">
-              <Button className="bg-slate-800 hover:bg-slate-700">Get Quote</Button>
-            </Link>
-          </div>
+        <div className="flex flex-1 items-center justify-end">
+          <Link to="/contact" className="hidden md:inline-flex">
+            <Button className="bg-slate-800 hover:bg-slate-700">Get Quote</Button>
+          </Link>
         </div>
       </div>
     </header>
