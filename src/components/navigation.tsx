@@ -4,9 +4,9 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { slugify } from "@/lib/slug";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, ChevronDown, Building2, Sparkles, HardHat, Shield, Zap, Palette, Plane, Truck } from "lucide-react";
+import { Menu, X, ChevronDown, Building2, Sparkles, HardHat, Shield, Zap, Palette, Plane, Truck } from "lucide-react";
 import { getLogoForPath } from "@/lib/logos";
 import { useLocation } from "react-router-dom";
 
@@ -70,7 +70,7 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="site-container flex h-16 items-center">
-        <div className="hidden md:flex items-center flex-1">
+        <div className="flex items-center flex-1">
           <Link to="/" className="flex items-center" aria-label="Go to home">
             <picture>
               {currentLogo.webpLight && (
@@ -107,7 +107,7 @@ export default function Navigation() {
             </picture>
           </Link>
         </div>
-        <nav className="flex-1 flex items-center justify-center gap-6 md:gap-8 lg:gap-10 xl:gap-12 text-sm whitespace-nowrap">
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-6 lg:gap-10 xl:gap-12 text-sm whitespace-nowrap" aria-label="Primary">
             <Link to="/" className="transition-colors hover:text-foreground/80 text-foreground">
               Home
             </Link>
@@ -144,83 +144,67 @@ export default function Navigation() {
               Contact
             </Link>
         </nav>
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-            >
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="pr-0">
-            <Link
-              to="/"
-              className="flex items-center"
-              onClick={() => setIsOpen(false)}
-              aria-label="Go to home"
-            >
-              <picture>
-                {currentLogo.webpLight && (
-                  <source srcSet={currentLogo.webpLight} type="image/webp" />
-                )}
-                <img
-                  src={currentLogo.light}
-                  alt={currentLogo.alt}
-                  className="h-8 w-auto object-contain"
-                  width={40}
-                  height={40}
-                  loading="eager"
-                  decoding="async"
-                  draggable={false}
-                  fetchPriority="high"
-                  style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
-                  onLoad={() => {
-                    if (performance && performance.mark) {
-                      performance.mark("logo-loaded-mobile");
-                    }
-
-                  }}
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
-                />
-              </picture>
-            </Link>
-            <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-              <div className="flex flex-col space-y-3">
-                <Link to="/" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
-                  Home
-                </Link>
-                <Link to="/about" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
-                  About Us
-                </Link>
-                <Link to="/services" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
-                  Services
-                </Link>
-                <div className="space-y-2">
-                  <div className="font-medium text-sm text-foreground/80">Our Divisions:</div>
-                  {subsidiaries.map((subsidiary) => (
-                    <Link
-                      key={subsidiary.name}
-                      to={`/${slugify(subsidiary.name)}`}
-                      onClick={() => setIsOpen(false)}
-                      className="block pl-4 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {subsidiary.name}
-                    </Link>
-                  ))}
-                </div>
-                <Link to="/contact" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
-                  Contact
-                </Link>
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+        
         <div className="flex flex-1 items-center justify-end">
-          <Link to="/contact" className="hidden md:inline-flex">
+          <Link to="/contact" className="hidden lg:inline-flex">
             <Button className="bg-slate-800 hover:bg-slate-700">Get Quote</Button>
           </Link>
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            <DialogTrigger asChild>
+              <Button
+                variant="ghost"
+                className="ml-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
+                aria-label="Open menu"
+                aria-controls="mobile-menu"
+                aria-expanded={isOpen}
+                aria-haspopup="menu"
+              >
+                <Menu className="h-7 w-7" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="p-0 bg-background/95 w-screen h-screen max-w-none top-0 left-0 translate-x-0 translate-y-0 overflow-x-hidden" showCloseButton={false} aria-label="Mobile navigation" id="mobile-menu">
+              <div className="sticky top-0 flex items-center justify-between px-6 py-4 border-b">
+                <span className="text-sm font-medium">Menu</span>
+                <Button
+                  variant="ghost"
+                  className="px-0"
+                  aria-label="Close menu"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <X className="h-6 w-6" />
+                </Button>
+              </div>
+              <div className="px-6 pb-10 overflow-y-auto h-[calc(100vh-64px)]">
+                <div className="flex flex-col space-y-4 text-base">
+                  <Link to="/" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
+                    Home
+                  </Link>
+                  <Link to="/about" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
+                    About Us
+                  </Link>
+                  <Link to="/services" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
+                    Services
+                  </Link>
+                  <div className="space-y-2">
+                    <div className="font-medium text-sm text-foreground/80">Our Divisions:</div>
+                    {subsidiaries.map((subsidiary) => (
+                      <Link
+                        key={subsidiary.name}
+                        to={`/${slugify(subsidiary.name)}`}
+                        onClick={() => setIsOpen(false)}
+                        className="block pl-4 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {subsidiary.name}
+                      </Link>
+                    ))}
+                  </div>
+                  <Link to="/contact" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
+                    Contact
+                  </Link>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </header>
