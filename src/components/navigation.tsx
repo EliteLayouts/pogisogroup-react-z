@@ -85,7 +85,7 @@ export default function Navigation() {
                 loading="eager"
                 decoding="async"
                 draggable={false}
-                fetchPriority="high"
+                fetchpriority="high"
                 style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
                 onLoad={() => {
                   if (performance && performance.mark) {
@@ -162,9 +162,8 @@ export default function Navigation() {
                 <Menu className="h-7 w-7" />
               </Button>
             </DialogTrigger>
-            <DialogContent className="p-0 bg-background/95 w-screen h-screen max-w-none top-0 left-0 translate-x-0 translate-y-0 overflow-x-hidden" showCloseButton={false} aria-label="Mobile navigation" id="mobile-menu">
-              <div className="sticky top-0 flex items-center justify-between px-6 py-4 border-b">
-                <span className="text-sm font-medium">Menu</span>
+          <DialogContent className="p-0 bg-background/95 w-screen h-screen max-w-none fixed inset-0 translate-x-0 translate-y-0 overflow-x-hidden rounded-none border-0 shadow-none gap-0 flex flex-col" showCloseButton={false} aria-label="Mobile navigation" id="mobile-menu">
+              <div className="sticky top-0 flex items-center justify-end px-0 py-0 border-b">
                 <Button
                   variant="ghost"
                   className="px-0"
@@ -174,8 +173,8 @@ export default function Navigation() {
                   <X className="h-6 w-6" />
                 </Button>
               </div>
-              <div className="px-6 pb-10 overflow-y-auto h-[calc(100vh-64px)]">
-                <div className="flex flex-col space-y-4 text-base">
+              <div className="px-0 overflow-y-auto flex-1 min-h-0">
+                <div className="flex flex-col items-center text-center space-y-4 text-base">
                   <Link to="/" onClick={() => setIsOpen(false)} className="text-foreground transition-colors hover:text-foreground/80">
                     Home
                   </Link>
@@ -186,13 +185,13 @@ export default function Navigation() {
                     Services
                   </Link>
                   <div className="space-y-2">
-                    <div className="font-medium text-sm text-foreground/80">Our Divisions:</div>
+                    <div className="font-medium text-sm text-foreground/80 text-center">Our Divisions:</div>
                     {subsidiaries.map((subsidiary) => (
                       <Link
                         key={subsidiary.name}
                         to={`/${slugify(subsidiary.name)}`}
                         onClick={() => setIsOpen(false)}
-                        className="block pl-4 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        className="block text-center text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {subsidiary.name}
                       </Link>
