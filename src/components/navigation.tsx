@@ -93,7 +93,12 @@ export default function Navigation() {
                   }
 
                 }}
-                onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
+                onError={(e) => {
+                  const img = e.currentTarget as HTMLImageElement;
+                  if (img.dataset.fallbackApplied === "1") return;
+                  img.dataset.fallbackApplied = "1";
+                  img.src = getLogoForPath("/").light;
+                }}
               />
             </picture>
           </Link>
