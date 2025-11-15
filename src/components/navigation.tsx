@@ -91,6 +91,7 @@ export default function Navigation() {
                   if (performance && performance.mark) {
                     performance.mark("logo-loaded");
                   }
+
                 }}
                 onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
               />
@@ -170,6 +171,7 @@ export default function Navigation() {
                     if (performance && performance.mark) {
                       performance.mark("logo-loaded-mobile");
                     }
+
                   }}
                   onError={(e) => { (e.currentTarget as HTMLImageElement).src = getLogoForPath("/").light; }}
                 />

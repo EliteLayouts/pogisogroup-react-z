@@ -79,14 +79,13 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
       });
       if (!resp.ok) {
         const text = await resp.text();
-        console.error("MailChannels error", text);
-        return new Response(JSON.stringify({ error: "email_send_failed" }), {
+        return new Response(JSON.stringify({ error: "email_send_failed", details: text ? true : false }), {
           status: 502,
           headers: { "content-type": "application/json" },
         });
       }
     } else {
-      console.log("Dry run contact submission", { to, subject, body });
+      // dry run: skip external request
     }
 
     const accept = ctx.request.headers.get("accept") || "";
