@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown, Building2, Sparkles, HardHat, Shield, Zap, Palette, Plane, Truck } from "lucide-react";
-import { getLogoForPath } from "@/lib/logos";
+import { getLogoForPath, getLogoForPathVariant } from "@/lib/logos";
 import { useLocation } from "react-router-dom";
 
 const subsidiaries = [
@@ -64,7 +64,8 @@ const subsidiaries = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const currentLogo = useMemo(() => getLogoForPath(location.pathname), [location.pathname]);
+  const useEnhancedLogo = useMemo(() => new URLSearchParams(location.search).get("logo") === "enhanced", [location.search]);
+  const currentLogo = useMemo(() => getLogoForPathVariant(location.pathname, useEnhancedLogo), [location.pathname, useEnhancedLogo]);
 
 
   return (
@@ -79,7 +80,7 @@ export default function Navigation() {
               <img
                 src={currentLogo.light}
                 alt={currentLogo.alt}
-                className="h-8 lg:h-10 w-auto object-contain"
+                className="h-8 w-auto object-contain"
                 width={40}
                 height={40}
                 loading="eager"

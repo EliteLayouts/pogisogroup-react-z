@@ -78,3 +78,75 @@ export const getLogoForPath = (pathname: string): LogoVariant => {
   const key = Object.keys(logoMap).find((k) => pathname.startsWith(`/${k}`));
   return logoMap[key ?? "pogiso-group"];
 };
+
+export const logoMapEnhanced: Record<string, LogoVariant> = {
+  "pogiso-group": {
+    light: logo("/assets/logos-enhanced/group/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/group/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/group/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/group/main-logo-white.webp"),
+    alt: "Pogiso Group logo",
+  },
+  "pogiso-cleaning": {
+    light: logo("/assets/logos-enhanced/cleaning/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/cleaning/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/cleaning/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/cleaning/main-logo-white.webp"),
+    alt: "Pogiso Cleaning logo",
+  },
+  "pogiso-hygiene": {
+    light: logo("/assets/logos-enhanced/hygiene/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/hygiene/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/hygiene/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/hygiene/main-logo-white.webp"),
+    alt: "Pogiso Hygiene logo",
+  },
+  "pogiso-construction": {
+    light: logo("/assets/logos-enhanced/construction/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/construction/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/construction/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/construction/main-logo-white.webp"),
+    alt: "Pogiso Construction logo",
+  },
+  "pogiso-security": {
+    light: logo("/assets/logos-enhanced/security/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/security/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/security/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/security/main-logo-white.webp"),
+    alt: "Pogiso Security logo",
+  },
+  "pogiso-energy": {
+    light: logo("/assets/logos-enhanced/energy/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/energy/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/energy/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/energy/main-logo-white.webp"),
+    alt: "Pogiso Energy logo",
+  },
+  "pogiso-marketing": {
+    light: logo("/assets/logos-enhanced/marketing/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/marketing/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/marketing/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/marketing/main-logo-white.webp"),
+    alt: "Pogiso Marketing logo",
+  },
+  "pogisos-tours": {
+    light: logo("/assets/logos-enhanced/tours/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/tours/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/tours/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/tours/main-logo-white.webp"),
+    alt: "Pogiso Tours logo",
+  },
+  "pogiso-logistics": {
+    light: logo("/assets/logos-enhanced/logistics/main-logo-blue.png"),
+    dark: logo("/assets/logos-enhanced/logistics/main-logo-white.png"),
+    webpLight: logo("/assets/logos-enhanced/logistics/main-logo-blue.webp"),
+    webpDark: logo("/assets/logos-enhanced/logistics/main-logo-white.webp"),
+    alt: "Pogiso Logistics logo",
+  },
+};
+
+export const getLogoForPathVariant = (pathname: string, enhanced?: boolean): LogoVariant => {
+  const key = Object.keys(logoMap).find((k) => pathname.startsWith(`/${k}`));
+  const defaultKey = key ?? "pogiso-group";
+  return enhanced ? logoMapEnhanced[defaultKey] : logoMap[defaultKey];
+};
