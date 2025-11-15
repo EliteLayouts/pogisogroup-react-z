@@ -1,0 +1,5 @@
+name = "pogisogroup-react-z"
+compatibility_date = "2024-11-01"
+
+[vars]
+MAIL_FROM = "no-reply@pogisogroup.co.za"

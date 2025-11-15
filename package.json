@@ -1,5 +1,5 @@
 {
-  "name": "nextjs_tailwind_shadcn_ts",
+  "name": "pogisogroup-react-z",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -76,6 +76,7 @@
     "zustand": "^5.0.6"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251115.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^18",

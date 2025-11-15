@@ -85,7 +85,7 @@ export default function Navigation() {
                 loading="eager"
                 decoding="async"
                 draggable={false}
-                fetchpriority="high"
+                fetchPriority="high"
                 style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
                 onLoad={() => {
                   if (performance && performance.mark) {
@@ -165,7 +165,7 @@ export default function Navigation() {
                   loading="eager"
                   decoding="async"
                   draggable={false}
-                  fetchpriority="high"
+                  fetchPriority="high"
                   style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
                   onLoad={() => {
                     if (performance && performance.mark) {
