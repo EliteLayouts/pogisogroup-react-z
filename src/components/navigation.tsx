@@ -72,7 +72,7 @@ export default function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="site-container flex h-16 items-center">
         <div className="flex items-center flex-1">
-          <Link to="/" className="flex items-center" aria-label="Go to home">
+          <Link to="/" className="flex items-center w-[250px]" aria-label="Go to home">
             <picture>
               {currentLogo.webpLight && (
                 <source srcSet={currentLogo.webpLight} type="image/webp" />
@@ -80,9 +80,9 @@ export default function Navigation() {
               <img
                 src={currentLogo.light}
                 alt={currentLogo.alt}
-                className="h-8 w-auto object-contain"
-                width={40}
-                height={40}
+                className="h-16 w-[250px] object-contain"
+                width={250}
+                height={64}
                 loading="eager"
                 decoding="async"
                 draggable={false}
