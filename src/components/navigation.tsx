@@ -70,9 +70,9 @@ export default function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="site-container flex h-16 items-center">
+      <div className="site-container flex h-20 items-center">
         <div className="flex items-center flex-1">
-          <Link to="/" className="flex items-center w-[250px]" aria-label="Go to home">
+          <Link to="/" className="flex items-center w-[250px] pt-5" aria-label="Go to home">
             <picture>
               {currentLogo.webpLight && (
                 <source srcSet={currentLogo.webpLight} type="image/webp" />
