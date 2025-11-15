@@ -97,6 +97,10 @@ export default function Navigation() {
                   const img = e.currentTarget as HTMLImageElement;
                   if (img.dataset.fallbackApplied === "1") return;
                   img.dataset.fallbackApplied = "1";
+                  const picture = img.parentElement as HTMLPictureElement | null;
+                  if (picture) {
+                    picture.querySelectorAll("source").forEach((s) => s.remove());
+                  }
                   img.src = getLogoForPath("/").light;
                 }}
               />
