@@ -79,7 +79,7 @@ export default function Navigation() {
               <img
                 src={currentLogo.light}
                 alt={currentLogo.alt}
-                className="h-8 sm:h-10 w-auto object-contain"
+                className="h-8 lg:h-10 w-auto object-contain"
                 width={40}
                 height={40}
                 loading="eager"
