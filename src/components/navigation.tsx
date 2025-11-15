@@ -86,8 +86,8 @@ export default function Navigation() {
                 loading="eager"
                 decoding="async"
                 draggable={false}
-                fetchpriority="high"
-                style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
+                fetchPriority="high"
+                style={{ padding: 5, backfaceVisibility: "hidden", transform: "translateZ(0)" }}
                 onLoad={() => {
                   if (performance && performance.mark) {
                     performance.mark("logo-loaded");
@@ -108,7 +108,7 @@ export default function Navigation() {
             </picture>
           </Link>
         </div>
-        <nav className="hidden mm:flex flex-1 items-center justify-center gap-6 mm:gap-10 lg:gap-12 text-sm whitespace-nowrap" aria-label="Primary">
+        <nav className="hidden md:flex flex-1 items-center justify-center gap-6 md:gap-10 lg:gap-12 text-sm whitespace-nowrap" aria-label="Primary">
             <Link to="/" className="transition-colors hover:text-foreground/80 text-foreground">
               Home
             </Link>
@@ -147,14 +147,14 @@ export default function Navigation() {
         </nav>
         
         <div className="flex flex-1 items-center justify-end">
-          <Link to="/contact" className="hidden mm:inline-flex">
+          <Link to="/contact" className="hidden md:inline-flex">
             <Button className="bg-slate-800 hover:bg-slate-700">Get Quote</Button>
           </Link>
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
               <Button
                 variant="ghost"
-                className="ml-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 mm:hidden"
+                className="ml-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
                 aria-label="Open menu"
                 aria-controls="mobile-menu"
                 aria-expanded={isOpen}
