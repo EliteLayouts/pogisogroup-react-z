@@ -86,14 +86,14 @@ export default function Navigation() {
               <img
                 src={currentLogo.light}
                 alt={currentLogo.alt}
-                className="h-16 w-[250px] object-contain"
+                className="h-16 w-[250px] object-contain object-left"
                 width={250}
                 height={64}
                 loading="eager"
                 decoding="async"
                 draggable={false}
-                fetchpriority="high"
-                style={{ padding: 5, backfaceVisibility: "hidden", transform: "translateZ(0)" }}
+                fetchPriority="high"
+                style={{ paddingTop: 5, paddingBottom: 5, paddingLeft: 0, paddingRight: 0, backfaceVisibility: "hidden", transform: "translateZ(0)" }}
                 onLoad={() => {
                   if (performance && performance.mark) {
                     performance.mark("logo-loaded");
