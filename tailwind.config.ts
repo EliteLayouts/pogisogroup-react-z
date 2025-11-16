@@ -12,11 +12,9 @@ const config: Config = {
   theme: {
 		screens: {
       sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
-      mm: "836px",
+      md: "991px",
+      lg: "1280px",
+      xl: "1536px",
     },
   	extend: {
   		colors: {
